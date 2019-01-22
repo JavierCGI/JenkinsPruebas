@@ -15,9 +15,34 @@ pipeline {
         }
       }
     }
-    stage('') {
+    stage('prueba3') {
       steps {
         sh 'echo "prueba3"'
+      }
+    }
+    stage('PWD') {
+      steps {
+        pwd()
+      }
+    }
+    stage('sleep 3') {
+      steps {
+        sleep 3
+      }
+    }
+    stage('comprueba fichero') {
+      steps {
+        fileExists 'prueba'
+      }
+    }
+    stage('escribir fichero') {
+      steps {
+        writeFile(file: 'pruebaescribir', text: 'pruebaescribir')
+      }
+    }
+    stage('correo') {
+      steps {
+        mail(subject: 'pruebacorreo', body: 'pruebacorreo', to: 'javier.lopezgonzalez@cgi.com')
       }
     }
   }
